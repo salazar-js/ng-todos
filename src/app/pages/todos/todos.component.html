@@ -20,14 +20,14 @@
   <div class="list-group">
 
     <!-- TODO -->
-    <div class="list-group-item list-group-item-action d-flex align-items-center" *ngFor="let tarea of [1,2,3,4,5]">
+    <div class="list-group-item list-group-item-action d-flex align-items-center" *ngFor="let todo of todos">
 
       <div class="form-group form-check m-0 mr-auto">
-        <input type="checkbox" class="form-check-input" id="tarea-{{tarea}}">
-        <label class="form-check-label" for="tarea-{{tarea}}">Tarea {{ tarea }}</label>
+        <input type="checkbox" class="form-check-input" id="todo-{{ todo.id }}" [checked]="todo.done">
+        <label class="form-check-label" for="todo-{{ todo.id }}">{{ todo.title }}</label>
       </div>
 
-      <a class="btn btn-sm btn-link mr-1" [routerLink]="['/todos', tarea, 'edit']">Editar</a>
+      <a class="btn btn-sm btn-link mr-1" [routerLink]="['/todos', todo.id, 'edit']">Editar</a>
       <button class="btn btn-sm btn-danger">Eliminar</button>
     </div>
 
