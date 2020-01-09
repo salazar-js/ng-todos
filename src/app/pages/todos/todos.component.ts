@@ -27,15 +27,27 @@ export class TodosComponent implements OnInit {
   }
 
   /** */
-  createTodo(text: string) {
-    this.todoApi.createTodo(text)
+  createTodo(formulario) {
+    
+    this.todoApi.createTodo(formulario)
     .then(data => {
-
-    });
+        this.getTodos()
+    }); 
   }
 
   /** */
-  updateTodo(id: number) {
+  updateTodo(data: TodoInterface) {
+    this.todoApi.updateTodo(data)
+    .then(_ => {
+      this.getTodos()
+    });
+  }
+
+  deleteTodo(id: number){
+    this.todoApi.deleteTodo(id)
+    .then(_ => {
+      this.getTodos()
+    });
   }
 
 }

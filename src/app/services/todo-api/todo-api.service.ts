@@ -17,25 +17,21 @@ export class TodoApiService {
 
   /** RETURN ALL TODOS TASKS */
   getTodos(): Promise<any> {
-    return this.http.get('url').toPromise();
+    return this.http.get('http://localhost:8080/todo').toPromise();
   }
 
   /** CREATE A NEW TODO */
-  createTodo(text: string): Promise<any> {
-    return this.http.post('url', {
-      // OBJETO QUE RECIBIRA EL SERVICIO
-    }).toPromise();
+  createTodo(data: any): Promise<any> {
+    return this.http.post('http://localhost:8080/todo', data).toPromise();
   }
 
-  /** CREATE A NEW TODO */
-  updateTodo(id: number, data: TodoInterface) {
-    return this.http.put('url', {
-      // OBJETO QUE RECIBIRA EL SERVICIO
-    }).toPromise();
+  /** UPDATE A ASSIGMENT */
+  updateTodo(data: TodoInterface) {
+    return this.http.put('http://localhost:8080/todo', data).toPromise();
   }
 
-  /** CREATE A NEW TODO */
-  removeTodo(id: number) {
-    return this.http.delete('url', )
+  /** DELETE A ASSIGMENT */
+  deleteTodo(id: number) {
+    return this.http.delete(`http://localhost:8080/todo/${id}` ).toPromise();
   }
 }
