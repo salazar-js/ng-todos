@@ -20,6 +20,11 @@ export class TodoApiService {
     return this.http.get('http://localhost:8080/todo').toPromise();
   }
 
+  /** RETURN TODO TASK BY ID */
+  getTodo(id: number): Promise <any> {
+    return this.http.get(`http://localhost:8080/todo/${id}`).toPromise();
+  }
+
   /** CREATE A NEW TODO */
   createTodo(data: any): Promise<any> {
     return this.http.post('http://localhost:8080/todo', data).toPromise();
