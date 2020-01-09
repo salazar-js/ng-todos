@@ -8,9 +8,11 @@ import { TodoInterface, TodoApiService } from 'src/app/services/todo-api/todo-ap
 })
 export class TodosComponent implements OnInit {
   public todos: Array<TodoInterface>;
+  public title: string;
 
   constructor(private todoApi: TodoApiService) {
     this.todos = [];
+    this.title = '';
   }
 
   /** */
@@ -27,26 +29,26 @@ export class TodosComponent implements OnInit {
   }
 
   /** */
-  createTodo(formulario) {
-    
-    this.todoApi.createTodo(formulario)
+  createTodo(title) {
+    this.todoApi.createTodo({ title })
     .then(data => {
-        this.getTodos()
-    }); 
+      this.getTodos();
+      this.title = '';
+    });
   }
 
   /** */
   updateTodo(data: TodoInterface) {
     this.todoApi.updateTodo(data)
     .then(_ => {
-      this.getTodos()
+      this.getTodos();
     });
   }
 
-  deleteTodo(id: number){
+  deleteTodo(id: number) {
     this.todoApi.deleteTodo(id)
     .then(_ => {
-      this.getTodos()
+      this.getTodos();
     });
   }
 

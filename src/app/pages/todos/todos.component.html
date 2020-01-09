@@ -9,8 +9,8 @@
     </nav>
 
     <!-- FORM -->
-    <form class="input-group mb-3" #formulario="ngForm" (ngSubmit)="createTodo(formulario.value)">
-        <input class="form-control" placeholder="Introduce el texto de la tarea" type="text" name="title" ngModel>
+    <form class="input-group mb-3" #formulario="ngForm" (ngSubmit)="createTodo(title)">
+        <input class="form-control" placeholder="Introduce el texto de la tarea" type="text" name="title" [(ngModel)]="title">
         <div class="input-group-append">
             <button class="btn btn-primary" type="submit">Agregar</button>
         </div>
